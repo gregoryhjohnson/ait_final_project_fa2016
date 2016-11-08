@@ -16,7 +16,8 @@ var User = new mongoose.Schema({
   email: String,
   first_name: String,
   last_name: String,
-  password: String
+  password: String,
+  artists_following: [{ type: Schema.Types.ObjectId, ref: 'Artist' }]
 });
 
 var Artist = new mongoose.Schema({
