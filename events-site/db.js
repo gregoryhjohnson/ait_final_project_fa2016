@@ -10,7 +10,7 @@ var User = new mongoose.Schema({
   artists_following: [{type: mongoose.Schema.Types.ObjectId, ref: 'Artist'}]
 });
 
-User.plugin(passportLocalMongoose);
+User.plugin(passportLocalMongoose, {usernameField: 'email'});
 
 var Artist = new mongoose.Schema({
   name: String,

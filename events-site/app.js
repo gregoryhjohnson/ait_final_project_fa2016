@@ -20,6 +20,7 @@ var conf = JSON.parse(data);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var artist = require('./routes/artist');
 
 var app = express();
 
@@ -45,10 +46,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
+app.use('/artist', artist);
 app.use('/users', users);
 
 var User = mongoose.model('User');
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy({usernameField: 'email'}, User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser()); 
 
