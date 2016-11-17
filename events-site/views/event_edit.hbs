@@ -1,0 +1,22 @@
+<h2>{{artist.name}}</h2>
+<h3>Add Event</h3>
+
+<form method="POST" action="">
+  <p>
+  <label for="event_type">
+  <span>Event Type: </span>
+  <select id="event_type" name="event_type">
+    <option disabled selected value> -- Select an event type -- </option>
+    <option value="performance">Live Performance</option>
+    <option value="release">Music Release</option>
+  </select>
+  </p>
+
+  <p>
+  <label for "event_date">
+  <span>Date: </span>
+  <input type="date" id="event_date" name ="event_date">
+  </p>
+
+  <input type="submit" value="Save Event">
+</form>

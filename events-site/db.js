@@ -2,39 +2,62 @@ var mongoose = require('mongoose');
 var URLSlugs = require('mongoose-url-slugs');
 var passportLocalMongoose = require('passport-local-mongoose');
 
+var dbconf;
+
+if (process.env.NODE_ENV == 'PRODUCTION'){
+  var fs = require('fs');
+  var path = require('path');
+  var fn = path.join(__dirname, 'config.json');
+  var data = fs.readFileSync(fn);
+  var conf = JSON.parse(data);
+  dbconf = conf.dbconf;
+} else {
+  dbconf = 'mongodb://localhost/event_site';
+}
+
 var User = new mongoose.Schema({
   email: String,
-  first_name: String,
-  last_name: String,
+  firstName: String,
+  lastName: String,
   password: String,
-  artists_following: [{type: mongoose.Schema.Types.ObjectId, ref: 'Artist'}]
+  artistsFollowing: [{type: mongoose.Schema.Types.ObjectId, ref: 'Artist'}],
+},
+{
+  timestamps: true
 });
-
 User.plugin(passportLocalMongoose, {usernameField: 'email'});
 
 var Artist = new mongoose.Schema({
   name: String,
-  full_name: String,
+  fullNname: String,
   active: Boolean,
-  bio: String
+  bio: String,
+  addedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+},
+{
+  timestamps: true
 });
+Artist.plugin(URLSlugs('name'));
 
 var Event = new mongoose.Schema({
-  artistId: Number,
+  artist: {type: mongoose.Schema.Types.ObjectId, ref: 'Artist'},
   date: Date,
-  other_info: String,
-  added_by_user_id: String
+  notes: String,
+  addedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+},
+{
+  timestamps: true
 });
 
 var Event = mongoose.model('Event', Event);
 
 //Subtypes of Event
 var PerformanceEvent = Event.discriminator('Performance', new mongoose.Schema({
-  ticket_info_url: String,
-  location_name: String,
-  location_city: String,
-  location_state: String,
-  location_country: String
+  ticketInfoURL: String,
+  locationName: String,
+  locationCity: String,
+  locationState: String,
+  locationCountry: String
 }));
 
 var ReleaseEvent = Event.discriminator('Release', new mongoose.Schema({
@@ -42,10 +65,10 @@ var ReleaseEvent = Event.discriminator('Release', new mongoose.Schema({
   releaseType: {type: String, enum: ['Album', 'Single', 'Other']}
 }));
 
-//ImagePost.plugin(URLSlugs('title'));
+
 mongoose.model('User', User);
 mongoose.model('Artist', Artist);
 
-mongoose.connect('mongodb://localhost/event_site');
+mongoose.connect(dbconf);
 
 

@@ -1,7 +1,31 @@
 <h2>Add Artist</h2>
 <form method="POST" action="">
+  <p>Fields marked with * are required</p>
   <p>
   <label for="artist_name">
+  <span>*Name: </span>
   <input type="text" id="artist_name" name="artist_name" required>
   </p>
+
+  <p>
+  <label for="full_name">
+  <span>Full Name: </span>
+  <input type="text" id="full_name" name="full_name">
+  </p>
+
+  <p>
+  <label for="active">
+  <span>*Active: </span>
+  <input type="checkbox" id="active" name="active" checked required>
+  </p>
+
+  <p>
+  <label for="bio">
+  <span>Bio: </bio>
+  <textarea id="bio" name="bio"></textarea>
+  </p>
+
+  <input type="submit" value="Add Artist">
+
+
 </form>

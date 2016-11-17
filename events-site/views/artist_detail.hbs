@@ -1,0 +1,13 @@
+<h2>{{artist.name}}</h2>
+<p>{{artist.bio}}</p>
+
+
+<h3>Upcoming Events</h3>
+{{#each events}}
+  <div class="event_listing">
+    <p>{{this.__t}}</p>
+    <p>{{this.date}}</p>
+    <a href='/artist/{{../artist.slug}}/event/{{this._id}}'>Details</a>
+  </div>
+{{/each}}
+<a href='/artist/{{artist.slug}}/add_event'>Add Event</a>

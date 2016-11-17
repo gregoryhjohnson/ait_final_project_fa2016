@@ -17,8 +17,8 @@ router.get('/register', function(req, res){
 router.post('/register', function(req, res){
   User.register(new User({
     email: req.body.email,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name
+    firstName: req.body.first_name,
+    lastName: req.body.last_name
     }), req.body.password, function(err, user){
       if (err){
         console.log(err);
