@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
     if(err){
       console.log(err);
     }
-    console.log(events);
     res.render('index', {user: req.user, events: events});
    });
 });

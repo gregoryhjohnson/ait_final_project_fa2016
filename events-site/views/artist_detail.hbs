@@ -1,7 +1,11 @@
 <h2>{{artist.name}}</h2>
 <p>{{artist.bio}}</p>
 <div class="hidden" id="artistID">{{artist._id}}</div>
-<button id="followBtn" onClick="handleFollowBtnClick()">Follow</button>
+{{#if userFollowing}}
+  <button id="followBtn" onClick="handleFollowBtnClick()" value="unfollow">Unfollow</button>
+{{else}}
+  <button id="followBtn" onClick="handleFollowBtnClick()" value="follow">Follow</button>
+{{/if}}
 
 <h3>Upcoming Events</h3>
 {{#each events}}

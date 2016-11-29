@@ -38,7 +38,14 @@ router.get('/:slug', function(req, res){
   Artist.findOne({slug: req.params.slug}, function(err, artist){
     if (err){
       console.log(err);
-    } else {  
+    } else {
+      var userFollowing = false;
+      if (req.user){
+        userFollowing = req.user.artistsFollowing.some(function(artistId){
+          return artistId.equals(artist._id);
+        });
+      }
+
       //Get upcoming events for this artist
       Event.find({
         artist: new ObjectId(artist._id), 
@@ -48,7 +55,7 @@ router.get('/:slug', function(req, res){
           console.log(err);
         } else {
           upcomingEvents = events;        
-          res.render('artist_detail', {artist: artist, events: events});
+          res.render('artist_detail', {artist: artist, events: events, userFollowing: userFollowing});
         }
       });
     }

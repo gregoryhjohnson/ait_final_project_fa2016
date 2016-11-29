@@ -1,4 +1,21 @@
+.hidden {
+  display: none;
+}
+
 .event_listing {
   border: 2px solid black;
   margin: 5px;
+}
+
+#unfollowBtn:hover {
+  background-color: red;
+}
+
+#unfollowBtn:hover span {
+  display: none;
+}
+
+
+#unfollowBtn:hover:after {
+  content: "Unfollow";
 }

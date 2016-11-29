@@ -29,20 +29,37 @@ router.put('/follow', function(req, res){
   }
   
   //Only adds the artistID if the user is not already following
-  req.user.update(
-    {$addToSet: { artistsFollowing: artistID}},
-    function(err, user){
-      if (err){
-        console.log(err);
-      } else {
-        console.log('following');
-        res.json({user: req.user});
-      }
-    });
+  req.user.artistsFollowing.addToSet(artistID);
+  req.user.save(function(err, user){
+    if (err){
+      console.log(err);
+    } else {
+      res.json({user: user});
+    }
+  });
 });
 
 router.delete('/unfollow', function(req, res){
-  //TODO
+  var artistID = req.body.artistID;
+
+  if (!req.user){
+    res.status(401);
+    res.json({error: 'Not logged in'});
+  }
+  
+  if (!artistID){
+    res.status(400);
+    res.json({error: 'No artistID specified'});
+    return;
+  }
+  req.user.artistsFollowing.pull(artistID);
+  req.user.save(function(err, user){
+    if (err){
+      console.log(err);
+    } else {
+      res.json({user: user});
+    }
+  });
 });
 
 module.exports = router; 
