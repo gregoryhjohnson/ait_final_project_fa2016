@@ -5,3 +5,14 @@
   <a href="/login">Login</a>
   <a href="/register">Register</a>
 {{/if}}
+
+<h3>Upcoming Events</h3>
+{{#each events}}
+  <div class="event_listing">
+    <p>{{this.artist.name}}</p>
+    <p>{{this.__t}}</p>
+    <p>{{this.date}}</p>
+    <a href='/artist/{{this.artist.slug}}/event/{{this._id}}'>Details</a>
+  </div>
+{{/each}}
+

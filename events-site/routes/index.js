@@ -3,11 +3,25 @@ var router = express.Router();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Event = mongoose.model('Event');
 var ensureAuthenticated = require('../middleware').ensureAuthenticated;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { user: req.user });
+  var eventQuery = Event.find(); 
+  if (req.user){
+      eventQuery.where('artist').in(req.user.artistsFollowing);
+  }
+  eventQuery.where('date').gte(new Date()).sort('date');
+  eventQuery.populate('artist');
+  eventQuery.limit(20);
+  eventQuery.exec(function(err, events){
+    if(err){
+      console.log(err);
+    }
+    console.log(events);
+    res.render('index', {user: req.user, events: events});
+   });
 });
 
 router.get('/register', function(req, res){
