@@ -22,7 +22,7 @@ var conf = JSON.parse(data);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var artist = require('./routes/artist');
+var artists = require('./routes/artists');
 var api = require('./routes/api');
 
 var app = express();
@@ -53,8 +53,14 @@ app.use(session(sessionOptions));
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Make req.user available to all templates
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use('/', routes);
-app.use('/artist', artist);
+app.use('/artists', artists);
 app.use('/users', users);
 app.use('/api', api);
 

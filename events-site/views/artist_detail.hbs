@@ -24,9 +24,11 @@
     {{/if}}
     </span>
     <span class="clearfix pull-right">
-      <a href='/artist/{{this.artist.slug}}/event/{{this._id}}' class="btn btn-primary">Details</a>
+      <a href='/artists/{{../artist.slug}}/event/{{this._id}}' class="btn btn-primary">Details</a>
     </span>
   </div>
 {{/each}}
 </div>
-<a href='/artist/{{artist.slug}}/add_event' class="btn btn-primary">Add Event</a>
+<a href='/artists/{{artist.slug}}/add_event' class="btn btn-primary">Add Event</a>
+<h3>Past Events</h3>
+

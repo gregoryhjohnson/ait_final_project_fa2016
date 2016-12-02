@@ -10,6 +10,19 @@ var Release = mongoose.model('Release');
 
 var ensureAuthenticated = require('../middleware').ensureAuthenticated;
 
+/*Artist listing page*/
+router.get('/', function(req, res){
+  //TODO: pagination
+  Artist.find({}, function(err, artists){
+    if (err){
+      console.log(err);
+    } else {
+      res.render('artist_listing', {artists: artists});
+    }
+  });
+});
+
+
 router.get('/add', ensureAuthenticated, function(req, res){
   res.render('artist_edit', {});
 });
@@ -28,7 +41,7 @@ router.post('/add', ensureAuthenticated, function(req, res){
       //TODO: error handling lol
       console.log(err);
     } else {
-      res.redirect('/artist/'+ artist.slug);
+      res.redirect('/artists/'+ artist.slug);
     }
   });
   
@@ -115,7 +128,7 @@ router.post('/:slug/add_event', ensureAuthenticated, function(req, res){
           //TODO: No type selected, abort add event
       }
       event.save(function(err, event){
-        res.redirect('/artist/' + artist.slug);
+        res.redirect('/artists/' + artist.slug);
       });
     }
   });

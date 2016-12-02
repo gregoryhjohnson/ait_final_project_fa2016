@@ -1,17 +1,11 @@
-{{#if user}}
 <h2> Welcome {{user.first_name}}</h2>
-<a href="/logout">Logout</a>
-{{else}}
-  <a href="/login">Login</a>
-  <a href="/register">Register</a>
-{{/if}}
 
 <h3>Upcoming Events</h3>
 <div class="list-group">
 {{#each events}}
   <div class="list-group-item clearfix">
     <span>
-      <h4 class="list-group-item-heading"><a href="/artist/{{this.artist.slug}}">{{this.artist.name}}</a></h4>
+      <h4 class="list-group-item-he;ding"><a href="/artists/{{this.artist.slug}}">{{this.artist.name}}</a></h4>
       {{this.__t}}
       <br>{{formatDate this.date "dddd, MMMM DD, YYYY"}}
     {{#if this.locationName}}
@@ -24,7 +18,7 @@
     {{/if}}
     </span>
     <span class="clearfix pull-right">
-      <a href='/artist/{{this.artist.slug}}/event/{{this._id}}' class="btn btn-primary">Details</a>
+      <a href='/artists/{{this.artist.slug}}/event/{{this._id}}' class="btn btn-primary">Details</a>
     </span>
   </div>
 {{/each}}
