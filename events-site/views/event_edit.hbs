@@ -13,10 +13,72 @@
   </p>
 
   <p>
-  <label for "event_date">
+  <label for="event_date">
   <span>Date: </span>
   <input type="date" id="event_date" name ="event_date">
   </p>
 
+  <div id="performance_section">
+    <p>
+    <label for="location_name">
+    <span>Location Name: </span>
+    <input type="text" id="location_name" name="location_name">
+    </p>
+    
+    <p>
+    <label for="location_city">
+    <span>City: </span>
+    <input type="text" id="location_city" name="location_city">
+    </p>
+
+    <p>
+    <label for="location_state">
+    <span>State: </span>
+    <input type="text" id="location_state" name="location_state">
+    </p>
+
+    <p>
+    <label for="location_country">
+    <span>Country: </span>
+    <select id="location_country" name="location_country">
+    </select>
+    </p>
+  
+    <p>
+    <label for="ticket_url">
+    <span>Ticket Link: </span>
+    <input type="text" id="ticket_url" name="ticket_url">
+    </p>
+  </div>
+
+  <div id="release_section">
+    <p>
+    <label for="release_name">
+    <span>Name: </span>
+    <input type="text" id="release_name" name="release_name">
+    </p>
+  </div>
+
+  <p>
+  <label for="notes">
+  <span>Notes: </span>
+  <textarea id="notes" name="notes"></textarea>
+  </p>
+
+
   <input type="submit" value="Save Event">
 </form>
+
+<script>
+$(document).ready(function() {
+  $('#event_type').on('change.states', function() {
+    $("#performance_section").toggle($(this).val() == 'performance');
+  }).trigger('change.states');
+});
+
+$(document).ready(function() {
+  $('#event_type').on('change.states', function() {
+    $("#release_section").toggle($(this).val() == 'release');
+  }).trigger('change.states');
+});
+</script>

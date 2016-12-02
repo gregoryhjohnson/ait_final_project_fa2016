@@ -9,9 +9,17 @@
 <h3>Upcoming Events</h3>
 {{#each events}}
   <div class="event_listing">
-    <p>{{this.artist.name}}</p>
+    <p><a href="/artist/{{this.artist.slug}}">{{this.artist.name}}</a></p>
     <p>{{this.__t}}</p>
     <p>{{this.date}}</p>
+    {{#if this.locationName}}
+      <p>{{this.locationName}}, {{this.locationCity}}
+      {{#if this.locationState}}
+      , {{this.locationState}}
+      {{/if}}
+      , {{this.locationCountry}}
+      </p>
+    {{/if}}
     <a href='/artist/{{this.artist.slug}}/event/{{this._id}}'>Details</a>
   </div>
 {{/each}}

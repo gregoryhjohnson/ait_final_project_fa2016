@@ -93,6 +93,11 @@ router.post('/:slug/add_event', ensureAuthenticated, function(req, res){
           event = new Performance({
             artist: artist._id,
             date: date,
+            locationName: req.body.location_name,
+            locationCity: req.body.location_city,
+            locationState: req.body.location_state,
+            locationCountry: req.body.location_country,
+            ticketInfoURL: req.body.ticket_url,
             notes: req.body.notes,
             addedBy: req.user._id,
           });
@@ -101,6 +106,7 @@ router.post('/:slug/add_event', ensureAuthenticated, function(req, res){
           event = new Release({
             artist: artist._id,
             date: date,
+            releaseName: req.body.release_name,
             notes: req.body.notes,
             addedBy: req.user._id,
           });
