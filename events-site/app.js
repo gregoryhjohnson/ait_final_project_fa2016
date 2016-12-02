@@ -8,6 +8,8 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
+var hbs = require('hbs');
+var moment = require('moment');
 require('./db.js');
 
 //First read in the config file. Note blocking file IO
@@ -30,6 +32,11 @@ var sessionOptions = {
   saveUninitialized: false,
   resave: false
 };
+
+hbs.registerHelper('formatDate', function (date, format) {
+    var mmnt = moment(date);
+    return mmnt.format(format);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

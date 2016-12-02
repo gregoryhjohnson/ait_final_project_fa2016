@@ -1,3 +1,7 @@
+body {
+  padding-top: 70px;
+}
+
 .hidden {
   display: none;
 }
@@ -5,6 +9,7 @@
 .event_listing {
   border: 2px solid black;
   margin: 5px;
+  padding: 3px;
 }
 
 #unfollowBtn:hover {
@@ -19,3 +24,4 @@
 #unfollowBtn:hover:after {
   content: "Unfollow";
 }
+
