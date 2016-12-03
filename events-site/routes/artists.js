@@ -134,4 +134,17 @@ router.post('/:slug/add_event', ensureAuthenticated, function(req, res){
   });
 });
 
+router.get('/:slug/event/:eventID', function(req, res){
+  Event.findOne()
+    .where('_id', req.params.eventID)
+    .populate('artist')
+    .exec(function(err, event){
+    if (err){
+      console.log(err);
+    } else {
+      res.render('event_detail', {event: event});
+    }
+  });
+});
+
 module.exports = router; 
