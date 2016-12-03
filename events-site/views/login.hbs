@@ -1,21 +1,29 @@
 <h2>Login</h2>
 
-<form method="POST" action="">
-  <p>
-    <label for="email">
+<form method="POST" action="" class="form-horizontal">
+  <div class="form-group">
+    <label for="email" class="control-label col-xs-2">
       <span>E-Mail: </span>
-      <input type="email" id ="email" name="email" required />
     </label>
-  </p>
+    <div class="col-xs-10">
+      <input type="email" class="form-control" id ="email" name="email" placeholder="Email" required />
+    </div>
+  </div>
 
-  <p>
-    <label for="password">
+  <div class="form-group">
+    <label for="password" class="control-label col-xs-2">
       <span>Password: </span>
-      <input type="password" id ="password" name="password" required />
     </label>
-  </p>
+    <div class="col-xs-10">
+      <input type="password" class="form-control" id ="password" name="password" placeholder="Password" required />
+    </div>
+  </div>
 
-  <input type="submit" value="Login">
+  <div class="form-group">
+    <div class="col-xs-offset-2 col-cs-10">
+      <input type="submit" class="btn btn-primary" value="Login">
+    </div>
+  </div>
 </form>
 
 

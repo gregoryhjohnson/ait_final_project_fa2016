@@ -1,33 +1,45 @@
 <h2>Register</h2>
 
-<form method="POST" action="">
-  <p>
-    <label for="email">
+<form method="POST" action="" class="form-horizontal">
+  <div class="form-group">
+    <label for="email" class="control-label col-xs-2">
       <span>E-Mail: </span>
-      <input type="email" id ="email" name="email" required />
     </label>
-  </p>
+      <div class="col-xs-10">
+        <input type="email" class="form-control" id ="email" name="email" placeholder="Email" required />
+      </div>
+  </div>
 
-  <p>
-    <label for="first_name">
+  <div class="form-group">
+    <label for="first_name" class="control-label col-xs-2">
       <span>First Name: </span>
-      <input type="text" id ="first_name" name="first_name" required />
     </label>
-  </p>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" id ="first_name" name="first_name" placeholder="First Name"  required />
+    </div>
+  </div>
 
-  <p>
-    <label for="last_name">
+  <div class="form-group">
+    <label for="last_name" class="control-label col-xs-2">
       <span>Last Name: </span>
-      <input type="text" id ="last_name" name="last_name" required />
     </label>
-  </p>
+    <div class="col-xs-10">
+        <input type="text" class="form-control" id ="last_name" name="last_name" placeholder="Last Name"  required />
+    </div>
+  </div>
 
-  <p>
-    <label for="password">
-      <span>Passowrd: </span>
-      <input type="password" id="password" name="password" required />
+  <div class="form-group">
+    <label for="password" class="control-label col-xs-2">
+      <span>Password: </span>
     </label>
-  </p>
-
-  <input type="submit" value="Register">
+    <div class="col-xs-10"> 
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password"  required />
+    </div>
+  </div>
+  
+  <div class="form-group"> 
+    <div class="col-xs-offset-2 col-xs-10">
+      <input type="submit" class="btn btn-primary" value="Register">
+    </div>
+  </div>
 </form>    
