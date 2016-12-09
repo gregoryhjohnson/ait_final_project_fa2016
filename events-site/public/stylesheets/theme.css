@@ -1,0 +1,46 @@
+
+body{
+  background-color: #eaeaea;
+}
+
+/*Waste some CPU cycles by rendering these barely noticable gradients! */
+.navbar-default {
+  background-image: -webkit-linear-gradient(top, #376f9e 0%, #376f9a 100%);
+  background-image:      -o-linear-gradient(top, #376f9e 0%, #376f9a 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#376f9e), to(#376f9a));
+  background-image:         linear-gradient(to bottom, #376f9e 0%, #376f9a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#376f9e', endColorstr='#376f9a', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+.navbar-default .navbar-brand {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: #fff;
+  font-size: 16px;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+  background-color: #ef9c43;
+  color: #fff;
+}
+
+.btn-primary{
+  background-image: -webkit-linear-gradient(top, #376f9e 0%, #376f9a 100%);
+  background-image:      -o-linear-gradient(top, #376f9e 0%, #376f9a 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#376f9e), to(#376f9a));
+  background-image:         linear-gradient(to bottom, #376f9e 0%, #376f9a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#376f9e', endColorstr='#376f9a', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+a{
+  color: #376f9e; 
+}
+
+/* Rounded buttons ain't cool*/
+.btn {
+	border-radius: 0px;
+}

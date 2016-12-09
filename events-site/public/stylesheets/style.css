@@ -1,5 +1,12 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
+
   padding-top: 70px;
+  padding-bottom: 60px;
 }
 
 .hidden {
@@ -23,5 +30,13 @@ body {
 
 #unfollowBtn:hover:after {
   content: "Unfollow";
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
 }
 

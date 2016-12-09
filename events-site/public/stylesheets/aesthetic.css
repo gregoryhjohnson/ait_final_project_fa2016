@@ -1,0 +1,42 @@
+/* A E S T H E T I C
+   E
+   S
+   T
+   H
+   E
+   T
+   I
+   C
+*/
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+  color: deepskyblue;
+  background-image: url('/images/pink.png');
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: deepskyblue;
+  font-size: 16px;
+}
+
+.navbar-default {
+  background-image: none;
+  background-color: hotpink !important; /*You're damn right that's important!*/
+  color: black;
+}
+
+.btn-primary{
+  background-image: none;
+  background-color: deepskyblue;
+  color: hotpink;
+}
+
+.list-group-item {
+  background-image: -webkit-linear-gradient(left, lightblue 0%, pink 100%);
+  background-image:      -o-linear-gradient(left, lightblue 0%, pink 100%);
+  background-image: -webkit-gradient(linear, left, right, from(lightblue), to(pink));
+  background-image:         linear-gradient(to right, lightblue 0%, pink 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='lightblue', endColorstr='pink', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}

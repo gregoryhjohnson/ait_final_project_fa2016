@@ -37,3 +37,11 @@ function handleFollowBtnClick(evt){
   req.send(data);
 }
 
+function activateMemeMode(){
+  var aesthetic = '/stylesheets/aesthetic.css';
+  $('#theme_customizations').attr('href',aesthetic);
+  $('body').prepend('<h3 style=\'text-align: center;\'>A E S T H E T I C</h3>');
+  $('body').append('<p>This site is best viewed on a 800x600 screen<p>');
+  $('body').append('<p>Optimized for Internet Explorer 4.0</p>');
+  $('#memes').hide();
+}
