@@ -19,6 +19,11 @@ router.get('/', function(req, res, next) {
     if(err){
       console.log(err);
     }
+    if (req.query.event_type){
+      events = events.filter(function(ele){
+        return ele.__t == req.query.event_type;
+      });
+    }
     res.render('index', {user: req.user, events: events});
    });
 });

@@ -1,6 +1,15 @@
 <h2> Welcome {{user.first_name}}</h2>
 
 <h3>Upcoming Events</h3>
+<form method="GET" action="">
+<label for="event_type">Event type</label>
+<select id="event_type" name="event_type" >
+  <option value="">All</option>
+  <option value="Performance">Performances</option>
+  <option  value="Release">Releases</option>
+</select>
+<input type="submit" value="Filter Results">
+</fom>
 <div class="list-group">
 {{#each events}}
   <div class="list-group-item clearfix">
