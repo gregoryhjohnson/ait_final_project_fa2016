@@ -1,31 +1,47 @@
 <h2>Add Artist</h2>
-<form method="POST" action="">
+<form method="POST" action="" class="form-horizontal">
   <p>Fields marked with * are required</p>
-  <p>
-  <label for="artist_name">
-  <span>*Name: </span>
-  <input type="text" id="artist_name" name="artist_name" required>
-  </p>
 
-  <p>
-  <label for="full_name">
-  <span>Full Name: </span>
-  <input type="text" id="full_name" name="full_name">
-  </p>
+  <div class="form-group">
+    <label for="artist_name" class="control-label col-xs-2">
+      <span>*Name: </span>
+    </label>
+    <div class="col-xs-6">
+      <input type="text" class="form-control" id="artist_name" name="artist_name" required>
+    </div>
+  </div>
 
-  <p>
-  <label for="active">
-  <span>*Active: </span>
-  <input type="checkbox" id="active" name="active" checked required>
-  </p>
+  <div class="form-group">
+    <label for="full_name" class="control-label col-xs-2">
+      <span>Full Name: </span>
+    </label>
+    <div class="col-xs-6">
+      <input type="text" class="form-control"  id="full_name" name="full_name">
+    </div>
+  </div>
 
-  <p>
-  <label for="bio">
-  <span>Bio: </bio>
-  <textarea id="bio" name="bio"></textarea>
-  </p>
+  <div class="form-group">
+    <label for="active" class="control-label col-xs-2">
+    <span>*Active: </span>
+    </label> 
+    <div class="col-xs-1">
+      <input type="checkbox" class="form-control"  id="active" name="active" checked required>
+    </div>
+  </div>
 
-  <input type="submit" value="Add Artist">
+  <div class="form-group">
+    <label for="bio" class="control-label col-xs-2">
+    <span>Bio: </bio>
+    </label>
+    <div class="col-xs-6">
+      <textarea id="bio" class="form-control" name="bio"></textarea>
+    </div>
+  </div>
 
+  <div class="form-group">
+    <div class="col-xs-offset-2 col-xs-10">
+      <input type="submit" value="Add Artist" class="btn btn-primary">
+    </div>
+  </div>
 
 </form>

@@ -1,72 +1,94 @@
 <h2>{{artist.name}}</h2>
 <h3>Add Event</h3>
 
-<form method="POST" action="">
-  <p>
-  <label for="event_type">
-  <span>Event Type: </span>
-  <select id="event_type" name="event_type">
-    <option disabled selected value> -- Select an event type -- </option>
-    <option value="performance">Live Performance</option>
-    <option value="release">Music Release</option>
-  </select>
-  </p>
+<form method="POST" action="" class="form-horizontal">
+  <div class="form-group">
+    <label for="event_type" class="control-label col-xs-2">
+      <span>Event Type: </span>
+    </label>
+      <div class="col-xs-6">
+        <select class="form-control" id="event_type" name="event_type">
+          <option disabled selected value> -- Select an event type -- </option>
+          <option value="performance">Live Performance</option>
+          <option value="release">Music Release</option>
+        </select>
+      </div>
+  </div>
 
-  <p>
-  <label for="event_date">
-  <span>Date: </span>
-  <input type="date" id="event_date" name ="event_date">
-  </p>
+  <div class="form-group">
+    <label for="event_date" class="control-label col-xs-2">
+      <span>Date: </span>
+    </label>
+    <div class="col-xs-6">
+      <input type="date" class="form-control" id ="event_date" name="event_date" placeholder="Date"  required />
+    </div>
+  </div>
 
   <div id="performance_section">
-    <p>
-    <label for="location_name">
-    <span>Location Name: </span>
-    <input type="text" id="location_name" name="location_name">
-    </p>
-    
-    <p>
-    <label for="location_city">
-    <span>City: </span>
-    <input type="text" id="location_city" name="location_city">
-    </p>
+    <div class="form-group">
+      <label for="location_name" class="control-label col-xs-2">
+        <span>Location Name: </span>
+      </label>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" id ="location_name" name="location_name" placeholder="Location Name" />
+      </div>
+    </div>
 
-    <p>
-    <label for="location_state">
-    <span>State: </span>
-    <input type="text" id="location_state" name="location_state">
-    </p>
+    <div class="form-group">
+      <label for="location_city" class="control-label col-xs-2">
+        <span>City: </span>
+      </label>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" id ="location_city" name="location_city" placeholder="City"  />
+      </div>
+    </div>
 
-    <p>
-    <label for="location_country">
-    <span>Country: </span>
-    <input type="text" id="location_country" name="location_country">
-    </p>
-  
-    <p>
-    <label for="ticket_url">
-    <span>Ticket Link: </span>
-    <input type="text" id="ticket_url" name="ticket_url">
-    </p>
+    <div class="form-group">
+      <label for="location_state" class="control-label col-xs-2">
+        <span>State: </span>
+      </label>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" id ="location_state" name="location_state" placeholder="State" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="location_country" class="control-label col-xs-2">
+        <span>Country: </span>
+      </label>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" id ="location_country" name="location_country" placeholder="Country"  />
+      </div>
+    </div>
   </div>
 
   <div id="release_section">
-    <p>
-    <label for="release_name">
-    <span>Name: </span>
-    <input type="text" id="release_name" name="release_name">
-    </p>
+    
+    <div class="form-group">
+      <label for="release_name" class="control-label col-xs-2">
+        <span>Release Name: </span>
+      </label>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" id ="release_name" name="release_name" placeholder="Release Name" />
+      </div>
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <label for="notes" class="control-label col-xs-2">
+      <span>Notes: </span>
+    </label>
+    <div class="col-xs-6">
+      <textarea class="form-control" id ="notes" name="notes" placeholder="Notes" ></textarea>
+    </div>
   </div>
 
-  <p>
-  <label for="notes">
-  <span>Notes: </span>
-  <textarea id="notes" name="notes"></textarea>
-  </p>
-
-
-  <input type="submit" value="Save Event">
-</form>
+  <div class="form-group"> 
+    <div class="col-xs-offset-2 col-xs-10">
+      <input type="submit" class="btn btn-primary" value="Add Event">
+    </div>
+  </div>
+</form>    
 
 <script>
 $(document).ready(function() {
