@@ -17,6 +17,17 @@ router.get('/', function(req, res){
     if (err){
       console.log(err);
     } else {
+      //Naive search feature (only implemented this way to fufill higher order function requirement)
+      if(req.query.artist_search){
+        //Inspired by first answer to this SO post: http://stackoverflow.com/questions/30891963/client-side-full-text-search-on-array-of-objects 
+        words = req.query.artist_search.toLowerCase().split(' ');
+        artists = artists.filter(function(artist){
+          return words.every(function(ele){
+            return artist.name.toLowerCase().indexOf(ele) > -1;
+            });
+          });
+        }
+
       res.render('artist_listing', {artists: artists});
     }
   });

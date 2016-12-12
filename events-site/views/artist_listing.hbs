@@ -1,15 +1,36 @@
 <h3>Artists</h3>
-<a href="/artists/add" class="btn btn-primary">Add An Artist</a>
+
+
 <div class="row">
 
   <div class="col-md-4">
+
+  <a href="/artists/add" class="btn btn-primary">Add An Artist</a>
+  </div>
+  <div class="col-md-4">
+    <form method="GET" action="">
+    <div class="form-group">
+      <label for="artist_search" class="control-label">Search Artists</label>
+      <input type="text" class="form-control" id="artist_search" name="artist_search">
+    </div>
+
+    <input type="submit" value="Search" class="btn btn-primary">
+    </form>
+  </div>
+
+
+  <div class="col-md-4"></div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+
   <ul>
   {{#each artists}}
     <li><a href="/artists/{{this.slug}}">{{this.name}}</a></li>
   {{/each}}
   </ul>
   </div>
-  <div class="col-md-4"></div>
-  <div class="col-md-4"></div>
-
 </div>
+
