@@ -153,6 +153,7 @@ router.get('/:slug/event/:eventID', function(req, res){
     if (err){
       console.log(err);
     } else {
+      //TODO: finish implementing this template 
       res.render('event_detail', {event: event});
     }
   });
